@@ -115,7 +115,8 @@ public class Character
             armor = shield;
             defend_cal();
 
-            name = give_name;
+            if(name != null)name = give_name;
+            else name = "MC";
 
             running_speed_lv();
 
@@ -127,8 +128,14 @@ public class Character
 
         public void attack()
         {
-            System.out.println("ATTACK!!");
-            System.out.println(dmg);
+            if(current_mana > 4)
+            {
+                System.out.println("ATTACK!!");
+                current_mana -= 4;
+                System.out.println(dmg);
+            }
+            else System.out.println("Out of Mana");
+
         }
 
         public void level_up()
