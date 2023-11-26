@@ -4,6 +4,14 @@ public class Shield
     private float defend;
     private int lv;
 
+    //private:
+
+    private void def_cal()
+    {
+        defend *= (1+0.1*lv);
+    }
+
+    //public:
     public Shield(String name,float defend, int lv)
     {
         this(defend,lv);
@@ -16,12 +24,13 @@ public class Shield
         this.lv = lv;
     }
 
-    public double for_return_defend()
+    public float reduce_speed(float speed)
     {
-        return defend*(1+0.1*lv);
+        return (float) (speed*(0.1+0.08*lv));
     }
 
-    public float for_return_lv()
+    //getter
+    public int for_return_lv()
     {
         return lv;
     }
@@ -31,8 +40,15 @@ public class Shield
         return name;
     }
 
+    public double for_return_defend()
+    {
+        return defend;
+    }
+
     public void upgrade()
     {
+        System.out.println("upgrade "+name);
         lv += 1;
+        def_cal();
     }
 }

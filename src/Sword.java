@@ -4,6 +4,9 @@ public class Sword
     private float base_atk;
     private int lv;
 
+    private float dmg;  
+
+    //public:
     public Sword(String name, float base_atk, int lv)
     {
         this(base_atk,lv);
@@ -16,16 +19,23 @@ public class Sword
         this.lv = lv;
     }
 
-    public double for_return_atk()
-    {
-        return base_atk*(1+0.1*lv);
-    }
-
     public double speed_decrease(float speed)
     {
         return speed*(0.1+0.04*lv);
     }
 
+    public void dmg_cal(double character_atk)
+    {
+       dmg = (float) ((character_atk+base_atk)*(1+0.1*lv));
+    }
+
+    public void upgrade()
+    {
+        System.out.println("upgrade "+name);
+        lv += 1;
+    }
+
+    //getter
     public int for_return_lv()
     {
         return lv;
@@ -36,8 +46,13 @@ public class Sword
         return name;
     }
 
-    public void upgrade()
+    public float return_atk()
     {
-        lv += 1;
+        return base_atk;
+    }
+
+    public double for_return_dmg()
+    {
+        return dmg;
     }
 }
