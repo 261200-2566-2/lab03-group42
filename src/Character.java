@@ -5,7 +5,7 @@ public class Character
         private String name;
         private float max_hp,max_mana;
         private float current_hp, current_mana;
-        int lv;
+        private int lv;
         private float base_atk;
         private float base_running_speed;
 
