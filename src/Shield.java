@@ -6,9 +6,9 @@ public class Shield
 
     //private:
 
-    private void def_cal()
+    private double def_cal()
     {
-        defend *= (1+0.1*lv);
+        return defend * (1+0.1*lv);
     }
 
     //public:
@@ -40,15 +40,16 @@ public class Shield
         return name;
     }
 
-    public double for_return_defend()
+    public float for_return_defend()
     {
-        return defend;
+        return (float) def_cal();
     }
 
     public void upgrade()
     {
         System.out.println("\nupgrade "+name);
         lv += 1;
+        defend += 1;
         def_cal();
     }
 }

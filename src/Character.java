@@ -39,7 +39,7 @@ public class Character
 
         private void upgrade_armor()
         {
-            if(weapon != null)
+            if(armor != null)
             {
                 armor.upgrade();
                 defend_cal();
@@ -60,8 +60,7 @@ public class Character
         {
             if(!(weapon == null))
             {
-                weapon.dmg_cal(base_atk);
-                dmg = (float) weapon.for_return_dmg();
+                dmg = (float) weapon.for_return_dmg(base_atk);
             }
             else dmg = (float) ((base_atk)*(1+0.1*lv));
         }
