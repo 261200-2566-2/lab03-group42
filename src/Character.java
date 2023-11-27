@@ -126,6 +126,7 @@ public class Character
             // if(weapon != null) sword_speed();
 
             running_speed_cal();
+            dmg_cal();
         }
 
         public void attack()
@@ -259,6 +260,7 @@ public class Character
         {
             String 
                 s_stat = "\n\nYOUR STAT\n",
+                s_lv = "LV : "+lv +'\n',
                 s_name = "Name : "+name+'\n',
                 s_hp = "HP : " + current_hp + '/'+ max_hp + '\n',
                 s_mana = "Mana : " + current_mana + '/' + max_mana + '\n',
@@ -269,7 +271,7 @@ public class Character
                 s_weapon = "Weapon : "+((weapon != null) ?weapon.for_return_name() + " LV " + weapon.for_return_lv(): "None") + '\n',
                 s_armor = "Shield : "+((armor != null) ?armor.for_return_name() + " LV " + armor.for_return_lv(): "None") + "\n\n",
                 s_speed = "Running Speed : " + running_speed + '\n',
-                for_return = s_stat+s_name+s_hp+s_defend+s_mana+s_atk+s_equipment+s_weapon+s_armor+s_speed;
+                for_return = s_stat+s_lv+s_name+s_hp+s_defend+s_mana+s_atk+s_equipment+s_weapon+s_armor+s_speed;
             return for_return;
         }
 
