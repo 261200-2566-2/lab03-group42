@@ -41,13 +41,13 @@ public class Character
         {
             if(weapon != null)
             {
-                weapon.upgrade();
+                armor.upgrade();
                 defend_cal();
 
                 armor_speed();
                 running_speed_cal();
             }
-            else System.out.println("How to upgrade empty sheild?");
+            else System.out.println("\nHow to upgrade empty sheild?\n");
         }
 
         private void armor_speed()
@@ -76,7 +76,7 @@ public class Character
                 sword_speed();
                 running_speed_cal();
             }
-            else System.out.println("How to upgrade empty sword?");
+            else System.out.println("\nHow to upgrade empty sword?\n");
         }
 
         private void sword_speed()
@@ -109,19 +109,21 @@ public class Character
             max_hp = current_hp = 100;
             max_mana = current_mana = 20;
 
-            weapon = sword;
-            dmg_cal();
+            change_equipment(sword);
+            change_equipment(shield);
+            // weapon = sword;
+            // dmg_cal();
 
-            armor = shield;
-            defend_cal();
+            // armor = shield;
+            // defend_cal();
 
-            if(name != null)name = give_name;
+            if(give_name != null)name = give_name;
             else name = "MC";
 
             running_speed_lv();
 
-            if(armor != null) armor_speed();
-            if(weapon != null) sword_speed();
+            // if(armor != null) armor_speed();
+            // if(weapon != null) sword_speed();
 
             running_speed_cal();
         }
@@ -130,21 +132,25 @@ public class Character
         {
             if(current_mana > 4)
             {
-                System.out.println("ATTACK!!");
+                System.out.println("\nATTACK!!");
                 current_mana -= 4;
                 System.out.println(dmg);
             }
-            else System.out.println("Out of Mana");
+            else System.out.println("\nOut of Mana");
+
+            System.out.println();
 
         }
 
         public void level_up()
         {
-            System.out.println("LEVEL UP!");
+            System.out.println("\nLEVEL UP!!!");
             lv += 1;
 
             hp_cal();
+            current_hp = max_hp;
             mana_cal();
+            current_mana = max_mana;
 
             running_speed_lv();
             if(weapon != null) sword_speed();
@@ -169,7 +175,7 @@ public class Character
                 }
                 default ->
                 {
-                    
+
                 }
             }
         }
@@ -182,6 +188,7 @@ public class Character
                 {
                     if(weapon != null)
                     {
+                        System.out.println("\n OK \n");
                         weapon = null;
                         dmg_cal();
                         sw_de_speed = 0;
@@ -189,7 +196,7 @@ public class Character
                     }
                     else
                     {
-                        System.out.println("You can't unwear your fist!");
+                        System.out.println("\nYou can't unwear your fist!\n");
                     }
 
                 }    
@@ -197,6 +204,7 @@ public class Character
                 {
                     if(armor != null)
                     {
+                        System.out.println("\n alright\n");
                         armor = null;
                         defend_cal();
                         sh_d_speed = 0;
@@ -204,13 +212,45 @@ public class Character
                     }
                     else
                     {
-                        System.out.println("Are you kidding me?");
+                        System.out.println("\nAre you kidding me?\n");
                     }
                 }
                 default ->
                 {
-                    
+                    System.out.println("\n?What?\n");
                 }
+            }
+        }
+
+        public void change_equipment(Sword input)
+        {
+            if(input == null)
+            {
+                if(weapon == null) System.out.println("\nChange None to None? Okey\n");
+                if(weapon != null) unequipment(1);
+            }
+            else
+            {
+                weapon = input;
+                sword_speed();
+                running_speed_cal();
+                dmg_cal();
+            }
+        }
+
+        public void change_equipment(Shield input)
+        {
+            if(input == null)
+            {
+                if(armor == null) System.out.println("\nChange None to None? Ok,fine\n");
+                if(armor != null) unequipment(2);
+            }
+            else
+            {
+                armor = input;
+                armor_speed();
+                running_speed_cal();
+                defend_cal();
             }
         }
 

@@ -31,8 +31,9 @@ public class Sword
 
     public void upgrade()
     {
-        System.out.println("upgrade "+name);
+        System.out.println("\nupgrade "+name);
         lv += 1;
+        base_atk += 5;
     }
 
     //getter

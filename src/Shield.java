@@ -47,7 +47,7 @@ public class Shield
 
     public void upgrade()
     {
-        System.out.println("upgrade "+name);
+        System.out.println("\nupgrade "+name);
         lv += 1;
         def_cal();
     }
