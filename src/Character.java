@@ -92,8 +92,6 @@ public class Character
 
         private void running_speed_cal()
         {
-            // System.out.println("sw = "+ sw_de_speed);
-            // System.out.println("sh = " + sh_d_speed);
             running_speed = running_speed_with_lv - sw_de_speed - sh_d_speed;
             if(running_speed < 0) running_speed = 0;
         }
